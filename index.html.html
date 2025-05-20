@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Do you like dinosaurs?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .dino {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .yes {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 22px;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dino">🦕</div>
+  <h1>Do you like dinosaurs?</h1>
+
+  <button class="yes" onclick="showResult('yes')">Yes</button>
+  <button class="no" onclick="showResult('no')">No</button>
+
+  <div id="result" class="result"></div>
+
+  <!-- صوتيات -->
+  <audio id="soundYes" src="https://cdn.pixabay.com/audio/2023/03/31/audio_0d90d9b4b4.mp3"></audio>
+  <audio id="soundNo" src="https://cdn.pixabay.com/audio/2023/03/28/audio_5b4c3ff946.mp3"></audio>
+
+  <script>
+    function showResult(answer) {
+      const result = document.getElementById("result");
+      const yesSound = document.getElementById("soundYes");
+      const noSound = document.getElementById("soundNo");
+
+      if (answer === "yes") {
+        result.innerHTML = "I love you too, bro 🦖❤️";
+        yesSound.play();
+      } else {
+        result.innerHTML = "It's okay 🦕💚";
+        noSound.play();
+      }
+    }
+  </script>
+
+</body>
+</html>
